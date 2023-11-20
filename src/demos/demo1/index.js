@@ -29,11 +29,6 @@ class Demo1 extends Component {
     this.validateLogin();
   };
 
-  togglePasswordVisibility = () => {
-    this.setState((prevState) => ({
-      showPassword: !prevState.showPassword,
-    }));
-  };
 
   setPredefinedUser = () => {
     const { predefinedUsername, predefinedPassword } = this.state;
