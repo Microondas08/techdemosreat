@@ -12,6 +12,13 @@ class Demo1 extends Component {
     };
   }
 
+  togglePasswordVisibility = (event) => {
+    event.preventDefault(); // Previene el envío del formulario
+    this.setState((prevState) => ({
+      showPassword: !prevState.showPassword,
+    }));
+  };
+
   handleInputChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
@@ -71,12 +78,14 @@ class Demo1 extends Component {
               onChange={this.handleInputChange}
             />
           </label>
-          <button onClick={this.togglePasswordVisibility}>
-            {showPassword ? "Ocultar" : "Mostrar"} Contraseña
-          </button>
           <br />
           <button type="submit">Iniciar Sesión</button>
         </form>
+
+        {/* Botón para mostrar/ocultar la contraseña fuera del formulario */}
+        <button onClick={this.togglePasswordVisibility}>
+          {showPassword ? "Ocultar" : "Mostrar"} Contraseña
+        </button>
 
         <h2>Configurar Usuario Predefinido</h2>
         <label>
